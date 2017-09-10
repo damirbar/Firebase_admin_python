@@ -1,8 +1,7 @@
 
 #  This script includes helpful functions which are used in admin.py and firebase-admin.py
 
-#  The Java hashcode algorithm is taken
-#  from here:
+#  The Java hashcode algorithm was taken from here:
 #  http://garage.pimentech.net/libcommonPython_src_python_libcommon_javastringhashcode/
 
 import json
