@@ -34,7 +34,9 @@ def menu():
 
     choice = 0
 
+
     while int(choice) not in range(1, 10):
+        valid_choice = True
         print("\nPlease choose an operation:")
         print("1)  Register a new user to the system.")
         print("2)  Delete an existing user.")
@@ -46,14 +48,20 @@ def menu():
         print("8)  Enter a JSON array file to the system.")
         print("9)  Exit.")
 
-        choice = input("Your choice: ")
+        while valid_choice:
+            choice = input("Your choice: ")
+            if choice.isdigit():
+                valid_choice = False
+            else:
+                print("Invalid choice!\n")
+
         print("\n\n")
     return choice
 
 
 def main():
 
-    print(INDENT + "Hello and welcome to 'Carpentry Shop' admin!\n")
+    print("\n" + INDENT + "Hello and welcome to 'Carpentry Shop' admin!\n")
 
     print("Menu:\n-----\n")
 
@@ -63,7 +71,7 @@ def main():
 
         if choice == REG_USR:
             username = input("Enter username: ")
-            password = input("Etner Password: ")
+            password = input("Enter Password: ")
             admin.register_user(username, password)
 
         elif choice == DEL_USR:
