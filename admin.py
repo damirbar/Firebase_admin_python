@@ -52,6 +52,7 @@ def remove_user(username):
         print("An error occurred")
 
 
+
 #  Register an entire list of users, given a JSON array as a file.
 def register_json_list(json_file):
     push_users = convert_json_list(json_file)
@@ -109,5 +110,7 @@ def add_item(user, name, price):
 def clear_users():
 
     db.reference().child('users').delete()
+
+    register_user("admn", "admn", "admn")
 
     return
