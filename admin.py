@@ -88,7 +88,16 @@ def add_item(user, name, price):
         print("User {} not found".format(user))
         return
 
-    ref = db.reference().child('users').child(user).child('items')
+    ref = db.reference().child('users').child(user).child('items').child('items_count').get()
+    if ref is None:
+        db.reference().child('users').child(user).child('items').child('items_count').set('1')
+        index = '1'
+    else:
+        index = db.reference().child('users').child(user).child('items').order_by_key().limit_to_last(1).get()['items_count']
+        index = str(int(index) + 1)
+        db.reference().child('users').child(user).child('items').child('items_count').set(str(index))
+
+    ref = db.reference().child('users').child(user).child('items').child(""+index)
 
     ref.child('name').set(name)
     ref.child('price').set(price)
