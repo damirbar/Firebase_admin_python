@@ -10,7 +10,8 @@ from password_hasher import convert_json_list
 
 
 cred = credentials.Certificate\
-    ("D:\Documents\Betzefer\YearB\semK\SoftwareSturcture\Ex4\carpentry-shop-firebase-adminsdk-pcbke-2e05a91098.json")
+    ("C:\\Users\\USER\PycharmProjects\SoftStructEx4-admin\carpentry-shop-firebase-adminsdk-pcbke-2e05a91098.json")
+#("D:\Documents\Betzefer\YearB\semK\SoftwareSturcture\Ex4\carpentry-shop-firebase-adminsdk-pcbke-2e05a91098.json")
 
 firebase_admin.initialize_app(cred, { 'databaseURL':
                                       'https://carpentry-shop.firebaseio.com/'
@@ -111,6 +112,6 @@ def clear_users():
 
     db.reference().child('users').delete()
 
-    register_user("admn", "admn", "admn")
+    register_user("admn", "admn")
 
     return
